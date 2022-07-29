@@ -1,0 +1,27 @@
+server:
+  port: 8801
+spring:
+  application:
+    name: consumer-nacos
+  cloud:
+    nacos:
+      server-addr: 192.168.26.150:8847
+      discovery:
+        namespace: localhost
+        username: nacos
+        password: nacos
+        cluster-name: clusterNode
+        #ephemeral: false #永久实例，当服务宕机了 也不会删除这个实例
+logging:
+  level:  #由于spring boot的默认日志是info，大于feign直至级别所以重新指定
+    online.k12code.server.openfeign: debug
+feign: #局部日志 yml文件的设置方式
+  client:
+    config:
+      producer-nacos:  #服务名字
+          loggerLevel: BASIC #配置日志级别
+#          contract: openfeign.Contract.Default #设置为默认的锲约(使用原生的注解)
+          connectTimeout: 5000 #默认2s
+          readTimeout: 10000 #默认5s
+          requestInterceptors:
+            - online.k12code.server.intercept.feign.ConsumerIntercept
