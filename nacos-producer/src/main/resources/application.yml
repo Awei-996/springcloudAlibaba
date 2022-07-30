@@ -2,13 +2,24 @@ server:
   port: 8802
 spring:
   application:
-    name: producer-nacos
+    name: producer-nacos #服务名
+  profiles:
+    active: dev #当前配置归类
   cloud:
     nacos:
-      server-addr: 192.168.26.150:8847
-      discovery:
+      server-addr: 192.168.26.150:8850 #nacos地址的配置 下面discovery、config都不需要在配置
+      discovery: #注册中心
+        username: dev
         namespace: localhost
-        username: nacos
-        password: nacos
-        cluster-name: clusterNode
+        password: dev
+        cluster-name: clusterNode #集群名字
+      config: #配置中心
+        group: G1
+        file-extension: yml #后缀名
+        namespace: localhost
+  config: #最新的配置
+    import: #采用变量的形式获取dataID
+      - optional:nacos:${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+#      - optional:nacos:tt #可以使用指定dataID
+
 
