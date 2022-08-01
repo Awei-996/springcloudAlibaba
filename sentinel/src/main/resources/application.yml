@@ -1,0 +1,9 @@
+server:
+  port: 8803
+spring:
+  application:
+    name: sentinel-test
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8810

@@ -1,0 +1,16 @@
+server:
+  port: 8804
+spring:
+  application:
+    name: sentinel-openfeign
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.26.150:8850
+        username: dev
+        password: dev
+        namespace: localhost
+        group: G1
+feign:
+  sentinel:
+    enabled: true

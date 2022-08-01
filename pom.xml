@@ -5,6 +5,8 @@
     <modules>
         <module>nacos-consumer</module>
         <module>nacos-producer</module>
+        <module>sentinel</module>
+        <module>sentinel-openfeign-consumer</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

@@ -13,6 +13,7 @@ spring:
         namespace: localhost
         password: dev
         cluster-name: clusterNode #集群名字
+        group: G1
       config: #配置中心
         group: G1
         file-extension: yml #后缀名

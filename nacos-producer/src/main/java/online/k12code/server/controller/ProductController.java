@@ -21,6 +21,7 @@ public class ProductController {
 
     @RequestMapping("/p1")
     public String p1(){
+        int a=1/0;
         return name+number--;
     }
 }
