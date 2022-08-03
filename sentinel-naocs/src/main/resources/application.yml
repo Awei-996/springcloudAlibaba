@@ -1,0 +1,22 @@
+server:
+  port: 8805
+spring:
+  application:
+    name: sentinel-nacos
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8001
+      web-context-unify: false #默认将调用链路收敛，导致链路流控效果无效
+      datasource:
+        flow-rule: #自定名字
+            nacos: #选择存储的方式
+              dataId: sentinel-nacos.json
+              server-addr: 192.168.26.150:8850
+              namespace: localhost
+              group: Sn
+              username: dev
+              password: dev
+              rule-type: flow
+
+

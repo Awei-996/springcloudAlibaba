@@ -7,6 +7,11 @@
         <module>nacos-producer</module>
         <module>sentinel</module>
         <module>sentinel-openfeign-consumer</module>
+        <module>sentinel-naocs</module>
+        <module>seata</module>
+        <module>gateway</module>
+
+
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
